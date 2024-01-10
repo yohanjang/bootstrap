@@ -127,7 +127,7 @@
 
     - __Deploy contract__
         - <code>cd \${HARDHAT_HOME}</code>
-        - <code>npx hardhat run scripts/deploy.js</code>
+        - <code>npx hardhat run scripts/deploy.ts</code>
             > __##Reponse##__
             \
             Lock with 0.001ETH and unlock timestamp 1704760247 deployed to 0x5FbDB2315678afecb367f032d93F642f64180aa3
