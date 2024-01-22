@@ -151,7 +151,7 @@
         1. scout docker-compose file
             1. <code>## hardhat node 기동</code>
             - <code>cdhard</code>
-            - <code>npx hardhat node --hostname 0.0.0.0
+            - <code>npx hardhat node --hostname 0.0.0.0</code>
             <br/>
             1. <code>## block scout 기동</code>
             - <code>cdhard</code>
