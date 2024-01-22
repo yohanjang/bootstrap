@@ -21,6 +21,11 @@
             - <code>tar zxf node-\${NODE_VERSION}-linux-x64.tar.gz</code>
             - <code>ln -sf ${PWD}/node-\${NODE_VERSION}-linux-x64/bin/* /usr/local/bin/</code>
             <br/>&nbsp;&nbsp;
+            1. <code>## root 계정으로 실행</code>
+            - <code>PROFILE_FILE=/etc/profile</code>
+            - <code>echo -e "\n##setting avoid npm install ssl fail" >> \${PROFILE_FILE}</code>
+            - <code>echo  "export NODE_TLS_REJECT_UNAUTHORIZED='0'" >> \${PROFILE_FILE}</code>
+            <br/>&nbsp;&nbsp;
             - <code>## check installed node</code>
                 1. <code>node -v && npm -v && npx -v</code>
                     > __##Reponse##__
@@ -151,7 +156,7 @@
             <br/>&nbsp;&nbsp;
             1. <code>## block scout 기동</code>
             - <code>cdhard</code>
-            - <code>docker-compose -f docker-compose-scout.yaml uo</code>
+            - <code>docker-compose -f docker-compose-scout.yaml up</code>
             <br/>&nbsp;&nbsp;
             1. <code>## block scout 기동 확인</code>
                 > <code>## 포트포워딩 설정</code>
