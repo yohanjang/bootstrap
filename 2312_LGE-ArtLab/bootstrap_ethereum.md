@@ -154,10 +154,10 @@
             - <code>docker-compose -f docker-compose-scout.yaml uo</code>
             <br/>&nbsp;&nbsp;
             1. <code>## block scout 기동 확인</code>
-            > <code>## 포트포워딩 설정</code>
-            <br/>&nbsp;&nbsp;
-            <code>호스트 | 게스트</code>
-            <br/>&nbsp;&nbsp;
-            <code>4000 &nbsp;&nbsp;| 4000</code>
+                > <code>## 포트포워딩 설정</code>
+                <br/>&nbsp;&nbsp;
+                <code>호스트 | 게스트</code>
+                <br/>&nbsp;&nbsp;
+                <code>4000 &nbsp;&nbsp;| 4000</code>
             - <code>호스트PC에서 http://localhost:4000/ 으로 접속</code>
             <br/>&nbsp;&nbsp;
