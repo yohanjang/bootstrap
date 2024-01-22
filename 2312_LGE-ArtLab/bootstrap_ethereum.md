@@ -30,7 +30,6 @@
                     10.2.3
                     <br/>&nbsp;&nbsp;
                     10.2.3
-            <br/>&nbsp;&nbsp;
     > 참고 : https://hardhat.org/hardhat-runner/docs/getting-started
     - <code>mkdir -p \${HARDHAT_HOME} && cd $_</code>
     - <code>npm install --save-dev hardhat</code>
@@ -44,7 +43,6 @@
         > <code>Do you want to add a .gitignore? (Y/n) · y</code>
         <br/>&nbsp;&nbsp;
         > <code>Do you want to install this sample project's dependencies with npm (@nomicfoundation/hardhat-toolbox)? (Y/n) · y</code>
-        <br/>&nbsp;&nbsp;
     - __Complie contract__
         - <code>cd \${HARDHAT_HOME}</code>
         - <code>npx hardhat compile</code>
@@ -55,7 +53,6 @@
             > <code>## Caused by: Error: self-signed certificate in certificate chain 오류 시 아래처럼 NODE_TLS_REJECT_UNAUTHORIZED 환경변수 세팅</code>
             <br/>&nbsp;&nbsp;
             > <code>NODE_TLS_REJECT_UNAUTHORIZED='0' npx hardhat compile</code>
-        <br/>&nbsp;&nbsp;
     - __Test contract__
         - <code>cd \${HARDHAT_HOME}</code>
         - <code>npx hardhat test</code>
@@ -93,7 +90,6 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✔ Should transfer the funds to the owner
             <br/>&nbsp;&nbsp;
         9 passing (982ms)
-        <br/>&nbsp;&nbsp;
     - __Deploy contract__
         - <code>cd \${HARDHAT_HOME}</code>
         - <code>npx hardhat run scripts/deploy.ts</code>
@@ -159,7 +155,9 @@
             <br/>&nbsp;&nbsp;
             1. <code>## block scout 기동 확인</code>
             > <code>## 포트포워딩 설정</code>
+            <br/>&nbsp;&nbsp;
             <code>호스트 | 게스트</code>
+            <br/>&nbsp;&nbsp;
             <code>4000 &nbsp;&nbsp;| 4000</code>
             - <code>호스트PC에서 http://localhost:4000/ 으로 접속</code>
             <br/>&nbsp;&nbsp;
