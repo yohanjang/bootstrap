@@ -10,14 +10,14 @@
     <br/>&nbsp;&nbsp;
 1. __shard directory__
     - <code># /etc/profile (혹은 ~/.profile , ~/.bash_rc 등) 추가</code>
-    - <code>if [ -d /mnt/ws/src ]; then
+    - <code>if [ ! -d /mnt/ws/src ]; then
   &nbsp;&nbsp;sudo mount -t vboxsf ws /mnt/ws
   &nbsp;&nbsp;ln -sf /mnt/ws/src/ /monachain
 fi</code>
 ### install
 1. __apt update && install tools__
     - <code>sudo apt update</code>
-    - <code>sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common</code>
+    - <code>sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common net-tools</code>
     - <code>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</code>
     <br/>&nbsp;&nbsp;
 1. __set up docker repository__
