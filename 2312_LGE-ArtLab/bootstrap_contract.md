@@ -125,16 +125,29 @@
 
 1. __기본 테스트 환경 구성__
     - <code>[# hardhat 기동](#hardhat-기동)</code>
+    - <code># hardhat에서 아래 파일들 추가</code>
+        > [hardhat\contracts\Coin.sol](./props/files/hardhat/contracts/Coin.sol)
+        <br/>&nbsp;&nbsp;
+        [hardhat\contracts\openzeppelin\token\ERC20\IERC20.sol](./props/files/hardhat/contracts/openzeppelin/token/ERC20/IERC20.sol)
+        <br/>&nbsp;&nbsp;
+        [hardhat\scripts\deploy-coin.ts](./props/files/hardhat/scripts/deploy-coin.ts)
+    - <code>cd hardhat</code>
+    - <code>npx hardhat run scripts/deploy-coin.ts</code>
     - <code># sample-ethers에서 아래 파일들 수정&추가</code>
-        > [sample-ethers\App.css](./props/code/App.css)
-        <br/>
-        [sample-ethers\App.tsx](./props/code/App.tsx)
-        <br/>
-        [sample-ethers\react-app-env.d.ts](./props/code/react-app-env.d.ts)
-        <br/>
-        [sample-ethers\components\address.tsx](./props/code/components\address.tsx)
-        <br/>
-        [sample-ethers\components\amount.tsx](./props/code/components\amount.tsx)
+        > [sample-ethers\src\App.css](./props/files/sample-ethers/src/App.css)
+        <br/>&nbsp;&nbsp;
+        [sample-ethers\src\App.tsx](./props/files/sample-ethers/src/App.tsx)
+        <br/>&nbsp;&nbsp;
+        [sample-ethers\src\react-app-env.d.ts](./props/files/sample-ethers/src/react-app-env.d.ts)
+        <br/>&nbsp;&nbsp;
+        [sample-ethers\src\abi\Coin.json](./props/files/sample-ethers/src/abi/Coin.json)
+        <br/>&nbsp;&nbsp;
+        [sample-ethers\src\components\address.tsx](./props/files/sample-ethers/src/components/address.tsx)
+        <br/>&nbsp;&nbsp;
+        [sample-ethers\src\components\amount.tsx](./props/files/sample-ethers/src/components/amount.tsx)
+        <br/>&nbsp;&nbsp;
+        [sample-ethers\src\abi\Coin.json](./props/files/sample-ethers/src/abi/Coin.json)
+            * 해당 파일은 [<code>npx hardhat run scripts/deploy-coin.ts</code>] 명령 시 생긴 hardhat\artifacts\contracts\Coin.sol\Coin.json 으로 대체 가능
     - <code># sample-ethers 기동</code>
         1. <code>cd sample-ethers</code>
         1. <code># npm install은 최초 1회만(ethersjs 사용하기 위해)</code>
