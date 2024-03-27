@@ -7,6 +7,7 @@
 1. __WSL__
     - Windwo 기능 켜기
         ```powershell
+        # [powershell]
         # win _ r 키 혹은 win 키 검색 appwiz.cpl
         # window 기능 중 Hyper-V, Linux용 Windows 하위 시스템 체크 설치 및 재부팅
         ```
@@ -21,6 +22,7 @@
 
     - 아래 명령어 입력 후 리스트 확인
         ```powershell
+        # [powershell]
         # 버전 확인
         wsl.exe --list --online
         wsl.exe --status
@@ -29,6 +31,7 @@
         <br/>&nbsp;&nbsp;
 
         ```powershell
+        # [powershell]
         # list 확인이 안될 시 진행 - 긴시간(2~30분정도) 소요
         dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
         ```
@@ -38,6 +41,7 @@
     - WSL 설치
         > 참고 : https://learn.microsoft.com/ko-kr/windows/wsl/install
         ```powershell
+        # [powershell]
         wsl.exe --set-default-version 2
 
         # 특정 버전 설치
@@ -51,7 +55,8 @@
         <br/>&nbsp;&nbsp;
 
         ```powershell
-        # 삭제 방법
+        # [powershell]
+        # 삭제 방법 (삭제 필요 시 // 필수 x)
         wsl --shutdown
         wsl --unregister Ubuntu-20.04
         
@@ -68,7 +73,8 @@
         ![user profile](./props/images/local_01_wsl_4_1_.png "user profile")
         <br/>&nbsp;&nbsp;
 
-        ```powershell
+        ```shell
+        # [wsl(ubuntu)]
         # root 계정 비밀번호 설정
         sudo passwd
 
@@ -90,15 +96,17 @@
         <br/>&nbsp;&nbsp;
 
         ```powershell
+        # [wsl(ubuntu)]
         # ssh restart
         sudo service ssh restart
-        # 아래 오류시
+        # 아래 오류시 (필수 x)
         sudo ssh-keygen -A
         ```
         ![ssh restart](./props/images/local_01_wsl_6.png "ssh restart")
         <br/>&nbsp;&nbsp;
 
         ```powershell
+        # [powershell]
         # wsl 재기동
         Ubuntu2004.exe config --default-user root
         sc stop LxssManager
@@ -114,6 +122,7 @@
     <br/>&nbsp;&nbsp;
     > 다운 파일 : https://download.mobatek.net/2402024022512842/MobaXterm_Portable_v24.0.zip
     ```powershell
+    # [window]
     # 다운 파일(.zip)을 압축 해제 후 MobaXterm_Personal_24.0.exe 실행
     # 최초 1회 네트워크 방화벽 해제
     # 편한 툴 실행을 위한 작업표시줄 고정
@@ -123,7 +132,8 @@
     ![작업표시줄 고정](./props/images/local_02_moba_3.png "작업표시줄 고정")
     <br/>&nbsp;&nbsp;
 
-    ```powershell
+    ```shell
+    # [monaXterm(ubuntu)]
     # session 설정
     # session 로그인 & OS 버전 확인
     cat /etc/*release*
@@ -135,6 +145,7 @@
 
 1. __docker__
     ```shell
+    # [monaXterm(ubuntu)]
     echo "check_certificate = off" >> ~/.wgetrc
     echo insecure >> ~/.curlrc
     sudo apt update
@@ -179,6 +190,7 @@
 1. __OpenJDK__
     > 다운 페이지 : https://jdk.java.net/archive/
     ```shell
+    # [monaXterm(ubuntu)]
     mkdir -p /usr/local/tools/ && cd $_
     wget https://download.java.net/java/GA/jdk17.0.2/dfd4a8d0985749f896bed50d7138ee7f/8/GPL/openjdk-17.0.2_linux-x64_bin.tar.gz
     tar zxf openjdk-17.0.2_linux-x64_bin.tar.gz
@@ -191,6 +203,7 @@
 1. __Go__
     > 다운 페이지 : https://go.dev/dl/
     ```shell
+    # [monaXterm(ubuntu)]
     mkdir -p /usr/local/tools/ && cd $_
     wget https://go.dev/dl/go1.21.2.linux-amd64.tar.gz
     tar zxf go1.21.2.linux-amd64.tar.gz
@@ -204,6 +217,7 @@
     1. Besu command 설치
         > 다운 페이지 : https://hyperledger.jfrog.io/artifactory/besu-binaries/besu
         ```shell
+        # [monaXterm(ubuntu)]
         mkdir -p /usr/local/tools/ && cd $_
         BESU_VER=23.10.2
         wget https://hyperledger.jfrog.io/artifactory/besu-binaries/besu/${BESU_VER}/besu-${BESU_VER}.tar.gz
@@ -216,6 +230,7 @@
 
     1. Besu network 실행
         ```shell
+        # [monaXterm(ubuntu)]
         # workspace 이동
         mkdir -p ~/local-dev && cd $_
 
@@ -274,6 +289,7 @@
         <br/>&nbsp;&nbsp;
 
         ```shell
+        # [monaXterm(ubuntu)]
         # genesis, node key쌍 생성
         ## https://besu.hyperledger.org/private-networks/reference/cli/subcommands#generate-blockchain-config
         # besu operator generate-blockchain-config --config-file=<FILE> --to=<DIRECTORY> [--genesis-file-name=<FILE>] [--private-key-file-name=<FILE>] [--public-key-file-name=<FILE>]
@@ -286,6 +302,7 @@
         <br/>&nbsp;&nbsp;
 
         ```shell
+        # [monaXterm(ubuntu)]
         # docker-compose 파일 생성
         cat > ./docker-compose.yaml <<EOL
         version: '2'
@@ -343,6 +360,7 @@
         <br/>&nbsp;&nbsp;
 
         ```shell
+        # [monaXterm(ubuntu)]
         ### !! modify !! ###
         # 2군데 수정
         ## 1. - BESU_BOOTNODES=enode://<configs/keys/0x.../key.pub내용(0x제외)>@127.0.0.1:30303
@@ -358,6 +376,7 @@
 1. __Orchestrator__
     1. Orchestrator 설치
         ```shell
+        # [monaXterm(ubuntu)]
         # 새로운 창에서 제공받은 orchestrator 폴더로 이동 후 구조 확인
         cd ~/local-dev/orchestrator/
         tree
@@ -366,6 +385,7 @@
         <br/>&nbsp;&nbsp;
 
         ```shell
+        # [monaXterm(ubuntu)]
         # 프로젝트 빌드
         cd ~/local-dev/orchestrator/
         go mod tidy && go mod vendor
@@ -392,6 +412,7 @@
         <br/>&nbsp;&nbsp;
 
         ```shell
+        # [vsCode(ubuntu)]
         # workspace 폴더 열기
 
         ## orchestrator/krx/config/config.yaml 확인
