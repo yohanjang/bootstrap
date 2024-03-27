@@ -1,0 +1,41 @@
+### grobal environment
+@SERVER_IP=localhost
+@SERVER_PORT=8000
+@SERVER_CONTEXT=/api/v1
+@SERVER_URL=http://{{SERVER_IP}}:{{SERVER_PORT}}{{SERVER_CONTEXT}}
+@JSON_HEADERS=Content-Type: application/json
+
+###
+@contractName=simple
+@sender=0xb72bdbc0680c358c6f6b094b3998f05c8ab89eee
+@senderKey=ae6ae8e5ccbfb04590405997ee2d52d2b330726137b875053c36d94e974d162f
+@contractAddress=0xb9A219631Aed55eBC3D998f17C3840B7eC39C0cc
+
+###
+### general - contract call(set)
+###
+POST {{SERVER_URL}}/general/contract/call/sync
+Content-Type: application/json
+
+{
+	"contractName": "{{contractName}}",
+	"contractSender": "{{sender}}",
+	"contractSenderKey": "{{senderKey}}",
+	"contractAddress": "{{contractAddress}}",
+	"contractFunctionName": "set",
+	"contractParams": "{\"x\":\"145\"}"
+}
+
+###
+### general - contract call(get)
+###
+POST {{SERVER_URL}}/general/contract/call/read
+Content-Type: application/json
+
+{
+	"contractName": "{{contractName}}",
+	"contractSender": "{{sender}}",
+	"contractAddress": "{{contractAddress}}",
+	"contractFunctionName": "get",
+	"contractParams": "{}"
+}

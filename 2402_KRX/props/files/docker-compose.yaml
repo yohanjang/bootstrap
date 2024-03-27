@@ -1,0 +1,50 @@
+version: '2'
+
+services:
+
+  besu-node:
+    container_name: besu-node
+    image: hyperledger/besu:23.10.2
+    ports:
+    - 8545:8545
+    - 8546:8546
+    - 8547:8547
+    - 30303:30303/tcp
+    - 30303:30303/udp
+    environment:
+    - OTEL_RESOURCE_ATTRIBUTES=service.name=besu-node,service.version=latest
+    - BESU_P2P_HOST=127.0.0.1 # 127.0.0.1
+    - BESU_P2P_PORT=30303 # 30303
+    - BESU_RPC_HTTP_API=EEA,WEB3,ETH,NET,TRACE,DEBUG,ADMIN,TXPOOL,PRIV,PERM,QBFT
+    - BESU_RPC_WS_API=EEA,WEB3,ETH,NET,TRACE,DEBUG,ADMIN,TXPOOL,PRIV,PERM,QBFT
+    - BESU_GENESIS_FILE=/config/genesis.json
+    - BESU_DATA_PATH=/opt/besu/data
+    - BESU_NODE_PRIVATE_KEY_FILE=/opt/besu/keys/key.priv
+    - BESU_HOST_ALLOWLIST=*
+    - BESU_MIN_GAS_PRICE=0
+    - BESU_DISCOVERY_ENABLED=true
+    ### !! modify !! ###
+    - BESU_BOOTNODES=enode://241ea5ff709b128b47573e7b523479df1da3ad47adb773e74c2a6c4e8d472832c20986b5082ddf0aa10188c2280e251bfeb012669fcea65bde7c3b9101bee493@127.0.0.1:30303
+    ## append
+    - BESU_LOGGING=DEBUG
+    ### rpc-http
+    - BESU_RPC_HTTP_ENABLED=true
+    - BESU_RPC_HTTP_HOST=0.0.0.0
+    - BESU_RPC_HTTP_PORT=8545
+    - BESU_RPC_HTTP_CORS_ORIGINS=*
+    ### rpc-ws
+    - BESU_RPC_WS_ENABLED=true
+    - BESU_RPC_WS_HOST=0.0.0.0
+    - BESU_RPC_WS_PORT=8546
+    ### graphql-http
+    - BESU_GRAPHQL_HTTP_ENABLED=true
+    - BESU_GRAPHQL_HTTP_HOST=0.0.0.0
+    - BESU_GRAPHQL_HTTP_PORT=8547
+    - BESU_GRAPHQL_HTTP_CORS_ORIGINS=*
+    labels:
+    - "consensus=besu"
+    volumes:
+    - ./configs/:/config
+    ### !! modify !! ###
+    - ./configs/keys/0xd2704912738a42e52430ca46a6cae5c2cf4eb32c:/opt/besu/keys
+
