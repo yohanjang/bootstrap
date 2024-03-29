@@ -77,7 +77,12 @@
         # [wsl(ubuntu)]
         # root 계정 비밀번호 설정
         sudo passwd
+        ```
+        ![root password](./props/images/local_01_wsl_4_2_.png "root password")
+        <br/>&nbsp;&nbsp;
 
+        ```shell
+        # [wsl(ubuntu)]
         # systemctl 명령어 사용 설정
         sudo cat > /etc/wsl.conf <<EOL
         [boot]
@@ -87,20 +92,18 @@
         # ssh root 접속 설정
         sudo vi /etc/ssh/sshd_config
         # 34 라인 아래와 같이 수정
-        sudo systemctl restart ssh
-        # 오류가 나더라도 아래 MobaXterm 실행해서 접속 가능한지 확인
         ```
-        ![root password](./props/images/local_01_wsl_4_2_.png "root password")
-        <br/>&nbsp;&nbsp;
         ![ssh config](./props/images/local_01_wsl_5_.png "ssh config")
         <br/>&nbsp;&nbsp;
 
-        ```powershell
+        ```shell
         # [wsl(ubuntu)]
         # ssh restart
-        sudo service ssh restart
-        # 아래 오류시 (필수 x)
+        sudo systemctl restart ssh
+
+        # 아래 그림과 같은 오류 시
         sudo ssh-keygen -A
+        # 아래와 같지 않은 오류가 나면 MobaXterm 실행해서 접속 가능한지 확인 (다음순서 진행)
         ```
         ![ssh restart](./props/images/local_01_wsl_6.png "ssh restart")
         <br/>&nbsp;&nbsp;
@@ -114,8 +117,6 @@
         wsl.exe -t Ubuntu-20.04
         wsl.exe -d Ubuntu-20.04
         ```
-        ![ssh restart](./props/images/local_01_wsl_6.png "ssh restart")
-        <br/>&nbsp;&nbsp;
 
 1. __MobaXterm__
     > 다운 페이지 : https://mobaxterm.mobatek.net/download-home-edition.html
@@ -364,10 +365,12 @@
         ### !! modify !! ###
         # 2군데 수정
         ## 1. - BESU_BOOTNODES=enode://<configs/keys/0x.../key.pub내용(0x제외)>@127.0.0.1:30303
-        ### >> - BESU_BOOTNODES=enode://241ea5ff709b128b47573e7b523479df1da3ad47adb773e74c2a6c4e8d472832c20986b5082ddf0aa10188c2280e251bfeb012669fcea65bde7c3b9101bee493@127.0.0.1:30303
+        ### >>(값추출방법) cat ./configs/keys/0x*/key.pub
+        ### >>(예시) - BESU_BOOTNODES=enode://241ea5ff709b128b47573e7b523479df1da3ad47adb773e74c2a6c4e8d472832c20986b5082ddf0aa10188c2280e251bfeb012669fcea65bde7c3b9101bee493@127.0.0.1:30303
 
         ## 2. - ./configs/keys/<하위 node address>:/opt/besu/keys (:빼먹지 않도록 주의)
-        ### >> - ./configs/keys/0xd2704912738a42e52430ca46a6cae5c2cf4eb32c:/opt/besu/keys
+        ### >>(값추출방법) ls ./configs/keys/
+        ### >>(예시) - ./configs/keys/0xd2704912738a42e52430ca46a6cae5c2cf4eb32c:/opt/besu/keys
 
         # 수정 후 기동
         docker-compose up
